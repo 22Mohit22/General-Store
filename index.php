@@ -75,25 +75,21 @@
             Categories
         </h1>
         <div class="list-group mx-5">
+            <?php 
+                $sql = "SELECT category FROM  products";
+                $categories = $conn->query($sql);
+                ?>
             <ul class="mx-5 row row-cols-1 row-cols-md-3 mx-2 my-2 g-5">
+                <?php 
+                if($categories->num_rows > 0) {
+                    ?>
+                    <?php 
+                        while($cat = $categories->fetch_assoc()) {
+                            ?>
                 <div class="col">
-                    <a href="#" class="btn btn-secondary d-flex justify-content-center align-items-center" style="width: 18rem; height: 18rem;"><h2>Winter wear</h2></a>
+                    <a href="#" class="btn btn-secondary d-flex justify-content-center align-items-center" style="width: 18rem; height: 18rem;"><h2><?php echo $cat["category"]; ?></h2></a>
                 </div>
-                <div class="col">
-                    <a href="#" class="btn btn-secondary d-flex justify-content-center align-items-center" style="width: 18rem; height: 18rem;"><h2>Summer wear</h2></a>
-                </div>
-                <div class="col">
-                    <a href="#" class="btn btn-secondary d-flex justify-content-center align-items-center" style="width: 18rem; height: 18rem;"><h2>Sports wear</h2></a>
-                </div>
-                <div class="col">
-                    <a href="#" class="btn btn-secondary d-flex justify-content-center align-items-center" style="width: 18rem; height: 18rem;"><h2>Casual</h2></a>
-                </div>
-                <div class="col">
-                    <a href="#" class="btn btn-secondary d-flex justify-content-center align-items-center" style="width: 18rem; height: 18rem;"><h2>Formal</h2></a>
-                </div>
-                <div class="col">
-                    <a href="#" class="btn btn-secondary d-flex justify-content-center align-items-center" style="width: 18rem; height: 18rem;"><h2>Accessories</h2></a>
-                </div>
+                <?php } } ?>
             </ul>
           </div>
     </div>
@@ -126,4 +122,4 @@
             </div>
             <?php } ?>
         </div>
-            <?php include('include/footer.php'); ?> 
+            <?php include('include/footer.php'); ?>
