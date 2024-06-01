@@ -76,7 +76,7 @@
         </h1>
         <div class="list-group mx-5">
             <?php 
-                $sql = "SELECT category FROM  products";
+                $sql = "SELECT DISTINCT category FROM  products";
                 $categories = $conn->query($sql);
                 ?>
             <ul class="mx-5 row row-cols-1 row-cols-md-3 mx-2 my-2 g-5">
@@ -122,4 +122,4 @@
             </div>
             <?php } ?>
         </div>
-            <?php include('include/footer.php'); ?>
+            <?php include('include/footer.php'); ?> 
